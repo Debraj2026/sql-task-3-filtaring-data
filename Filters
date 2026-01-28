@@ -1,0 +1,73 @@
+-- 1. Filter by single condition using WHERE
+SELECT * 
+FROM students
+WHERE age = 20;
+
+-- 2. Filter by multiple conditions using AND
+SELECT * 
+FROM students
+WHERE age > 18 AND city = 'Kolkata';
+
+-- 3. Filter by multiple conditions using OR
+SELECT * 
+FROM students
+WHERE city = 'Delhi' OR city = 'Mumbai';
+
+-- 4. Search names starting with a letter using LIKE and %
+SELECT * 
+FROM students
+WHERE name LIKE 'A%';
+
+-- 5. Search names ending with a letter using LIKE
+SELECT * 
+FROM students
+WHERE name LIKE '%n';
+
+-- 6. Search names with a single unknown character using _
+SELECT * 
+FROM students
+WHERE name LIKE '_im';  -- example matches 'Tim', 'Kim'
+
+-- 7. Filter records using IN
+SELECT * 
+FROM students
+WHERE city IN ('Delhi', 'Mumbai', 'Kolkata');
+
+-- 8. Filter records using BETWEEN
+SELECT * 
+FROM students
+WHERE age BETWEEN 18 AND 25;
+
+-- 9. Handle NULL values
+SELECT * 
+FROM students
+WHERE email IS NULL;
+
+-- 10. Handle NOT NULL values
+SELECT * 
+FROM students
+WHERE email IS NOT NULL;
+-- 11. Combine AND, OR, LIKE in complex queries
+SELECT * 
+FROM students
+WHERE (city = 'Delhi' OR city = 'Mumbai') 
+  AND name LIKE 'A%';
+
+-- 12. Using aliases for better readability
+SELECT s.name AS student_name, s.age, s.city
+FROM students s
+WHERE s.age > 18;
+
+-- 13. Real-life scenario: search by email domain
+SELECT * 
+FROM students
+WHERE email LIKE '%@gmail.com';
+
+-- 14. Fetch students with missing city OR age less than 18
+SELECT * 
+FROM students
+WHERE city IS NULL OR age < 18;
+-- 15. Fetch top students in specific grade range (example using BETWEEN)
+SELECT * 
+FROM students
+WHERE grade BETWEEN 'A' AND 'B';
